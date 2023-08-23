@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Smart</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("background.gif");
+            background-size: cover;
+            background-position: center;
+            background-repeat: repeat;
+            height: 100%; 
+            overflow-y: scroll; 
+            scroll-behavior: smooth; 
+        }
+        header, footer {
+            background-color: #9AFEFF;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #014ba0;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+        #dashboard {
+            flex: 1;
+            background-color: silver;
+            padding: 60px;
+            margin: 40px;
+        }
+        #content {
+            flex: 3;
+            background-color: grey;
+            padding: 20px;
+            margin: 30px;
+        }
+        footer {
+            position: fixed; /* Stick to the bottom */
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #9AFEFF;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo here don't forget -->
+        <img src="logo-top.png" alt="Logo" width="100">
+    </header>
+    <nav>
+        <!--navigation here lad-->
+        <a href="#">Home</a> |
+        <a href="#">About</a> |
+        <a href="#">Services</a>
+    </nav>
+    <div class="container">
+        <div id="dashboard">
+            <!--Dashboard Here -->
+            <h2>Dashboard</h2>
+            <p>Lorem Ipsum</p>
+        </div>
+        <div id="content">
+            <!-- Main Content of the Page -->
+            <h1 style="color: white">Zoom through all the things that spark your Interest!</h1>
+            <p>Lorem ipsum</p>
+        </div>
+    </div>
+    <footer>
+        <!--Logo with Footer -->
+        <img src="logo-bottom.png" alt="Logo" width="100">
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>

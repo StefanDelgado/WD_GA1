@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(background.gif);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .navbar {
+            width: 85%;
+            margin: auto;
+            padding: 35px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 300px;
+            cursor: pointer;
+        }
+
+        .navbar ul li {
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .navbar ul li::after {
+            content: '';
+            height: 3px;
+            width: 0;
+            background: hsl(210, 98%, 51%);
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover::after {
+            width: 100%;
+        }
+
+        .content {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: #fff;
+        }
+
+        .content h1 {
+            font-size: 60px;
+            margin-top: 80px;
+        }
+
+        .content p {
+            margin: 20px auto;
+            font-weight: 100;
+            line-height: 25px;
+        }
+
+        .flex-container {
+            background-color: rgba(255, 255, 255, 0); /* Transparent background color */
+            width: auto;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .social {
+            float: left;
+            margin: auto;
+            margin-top: 50px;
+            margin-left: 200px;
+            width: auto;
+            height: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+
+    
+        }
+        .email {
+            float: right;
+            margin-top: 5%;
+            margin-right: 10%;
+            width: auto;
+            height: auto;
+        }
+
+        .contactContainer {
+            padding: 20px;
+            background-color: rgba(74, 124, 170, 0.7); /* Transparent background color */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(33, 150, 243, 0.5); /* Glow effect */
+            width: 250px;
+            height: 200px;
+            color: #c4c4c4;
+        }
+
+        .social a {
+            text-decoration: none;
+            color: #c4c4c4;
+            margin-left: 10%;
+        }
+
+        .social p {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Smaller social logos */
+        footer img {
+            max-width: 32px;
+            height: auto;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <img src="CourseLogos.png" class="logo">
+            <ul>
+                <li><a href="MainPage.html">Home</a></li>
+                <li><a href="Courses.html">Courses</a></li>
+                <li><a href="About Us.html">About Us</a></li>
+                <li><a href="contactus.html">Contacts</a></li>
+            </ul>
+        </div>
+        <div class="flex-container">
+            <div class="social">
+                <h2>Socials</h2>
+                <div class="contactContainer">
+                    <section><a href="#"><img src="logo-facebook.svg" alt="Facebook" width="35px"> <p>Facebook</p></a></section>
+                    <section><a href="#"><img src="logo-instagram.svg" alt="Instagram" width="35px"><p>Instagram</p></a></section>
+                    <section><a href="#"><img src="logo-twitter.svg" alt="Twitter" width="35px"><p>Twitter</p></a></section>
+                </div>
+            </div>
+            <div class="social">
+                <h2>Emails</h2>
+                <div class="contactContainer">
+                    <h2>@gmail.com</h2>
+                    <h2>@gmail.com</h2>
+                    <h2>@gmail.com</h2>
+                </div>
+            </div>
+            <div class="social">
+                <h2>Direct Contact</h2>
+                <div class="contactContainer">
+                    <h2>090000000000</h2>
+                    <h2>090000000000</h2>
+                    <h2>090000000000</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="#"><img src="logo-youtube.svg" alt="YouTube"></a>
+        <a href="#"><img src="logo-facebook.svg" alt="Facebook"></a>
+        <a href="#"><img src="logo-twitter.svg" alt="Twitter"></a>
+        <a href="#"><img src="logo-instagram.svg" alt="Instagram"></a>
+        <a href="#"><img src="logo-snapchat.svg" alt="Snapchat"></a>
+    </footer>
+</body>
+</html>

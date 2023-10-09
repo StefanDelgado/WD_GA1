@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        /* Updated CSS for the modal */
+        .modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #111;
+    max-width: 460px;
+    color: #fff;
+    font-family: "Monsterrat";
+    padding: 60px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    margin: auto; /* Center within the viewport */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+.modal-content h2 {
+    text-transform: uppercase;
+}
+
+.modal-content p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #f1f1f1;
+}
+
+.terms-box {
+    max-width: 460px;
+    background-color: #111;
+    color: #fff;
+    font-family: "Monsterrat";
+    padding: 60px 30px;
+    text-align: center; /* Center-align the content */
+    display: flex; /* Use flexbox for centering vertically */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+.modal-content .terms-text {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #f1f1f1;
+}
+
+.modal-content .terms-text::-webkit-scrollbar {
+    width: 2px;
+    background-color: #282828;
+}
+
+.modal-content .terms-text::-webkit-scrollbar-thumb {
+    background-color: #d13639;
+}
+
+.modal-content button {
+    height: 50px;
+    width: calc(50% - 6px);
+    border: 0;
+    border-radius: 6px;
+    font-size: 19px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.modal-content .red-btn {
+    background-color: #d13639;
+}
+
+.modal-content .gray-btn {
+    background-color: #282828;
+}
+
+.modal-content button:hover {
+    opacity: 0.6;
+}
+
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(background.gif);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar {
+            width: 85%;
+            margin: auto;
+            padding: 35px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 300px;
+            cursor: pointer;
+        }
+
+        .navbar ul li {
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .navbar ul li::after {
+            content: '';
+            height: 3px;
+            width: 0;
+            background: hsl(210, 98%, 51%);
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover::after {
+            width: 100%;
+        }
+
+        .content {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: #fff;
+        }
+
+        .content h1 {
+            font-size: 60px;
+            margin-top: 80px;
+        }
+
+        .content p {
+            margin: 20px auto;
+            font-weight: 100;
+            line-height: 25px;
+        }
+
+        button {
+            width: 200px;
+            padding: 15px 0;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 25px;
+            margin: 20px 10px;
+            border: 2px solid hsl(210, 98%, 51%);
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        span {
+            background: hsl(210, 98%, 51%);
+            height: 100%;
+            width: 0;
+            border-radius: 25px;
+            position: absolute;
+            transition: 0.5s;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        button:hover span {
+            width: 100%;
+        }
+
+        button:hover {
+            border: none;
+        }
+
+        h1 {
+            font-size: 46px;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            height: 100vh;
+            overflow: auto;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            position: absolute;
+        }
+
+        .cl1 {
+            background: #3498db;
+            position: static;
+        }
+
+        .cl2 {
+            background: #1abc9c;
+        }
+
+        .cl3 {
+            background: #1abc9c;
+            position: static;
+        }
+
+        .cl4 {
+            background: #3498db;
+        }
+
+        #scroll_section {
+            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            height: 100vh;
+            z-index: 2;
+        }
+
+        #scroll_section .section {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #fff;
+            text-align: center;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Smaller social logos */
+        footer img {
+            max-width: 32px;
+            height: auto;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal" id="myModal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="terms-box">
+        <div class="terms-text">
+            <h2>Terms and Conditions</h2>
+            <p>Last Edit: 10/09/2023</p>
+            <p>Greetings Users,</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error dolor accusantium. Voluptatem voluptatibus illo sit iure architecto, blanditiis ex. Nam voluptates dolorem est quasi ducimus laboriosam. Eum unde, adipisci fugit autem laboriosam corrupti excepturi qui dolore molestiae eaque ex dolorum aliquid accusamus, impedit quam sed culpa voluptate quod blanditiis.</p>
+            <p>Veritatis amet ex accusamus corrupti delectus a vitae architecto, perferendis in non quibusdam libero quaerat nisi! Natus consequatur eveniet iste porro asperiores fugiat corrupti, temporibus deserunt sequi eius necessitatibus labore impedit ducimus esse quia obcaecati nesciunt nobis nisi libero illo expedita repellat soluta ipsa! Nesciunt iusto corrupti ducimus dolorum ea!</p>
+            <p>Velit numquam eum quam doloribus laboriosam dicta ea nam totam vitae fuga ducimus tenetur odit odio sapiente, quaerat sunt at dolores consectetur quo atque deserunt excepturi, commodi mollitia? Sed voluptas iste repudiandae eaque maxime omnis natus ipsa laborum placeat. Corrupti sint totam repudiandae! Asperiores magni pariatur possimus fuga vero deserunt?</p>
+            <p>Iste, ipsum magnam aperiam fugiat, unde est explicabo veritatis amet eligendi obcaecati fuga asperiores. Nostrum in dicta, ullam quam iste beatae vero magni laudantium corrupti exercitationem totam incidunt, repellat non ab modi possimus distinctio accusantium tempore, saepe corporis eaque velit. Quaerat, error recusandae. Quis aliquam facere maiores, odit totam dolor.</p>
+            <p>Illo minima nostrum quibusdam deserunt consequatur ea consequuntur repellendus ad earum hic, nam reiciendis quia recusandae tenetur vero in ipsum! Labore eum velit, consequatur enim, nemo explicabo tempora, ex facilis nisi excepturi omnis eius fugit ipsum corporis. Illo amet id odio, itaque magni commodi eligendi quo, culpa debitis nam blanditiis.</p>
+            <p>Minus, incidunt officia ducimus fugit inventore magnam deserunt soluta unde ex suscipit quam veniam non, atque itaque quas consequatur qui! Quia, placeat aperiam labore at doloremque voluptas blanditiis facere est sed eius? Tempora in explicabo perferendis ratione labore unde commodi, delectus qui minus! Deleniti rerum consequuntur soluta maxime, consequatur consectetur.</p>
+        </div>
+        <h4>I Agree to the <span> Terms and Conditions</span> and I read the Privacy Notice.</h4>
+        <div class="buttons">
+            <button class="btn red-btn" id="acceptBtn">Accept</button>
+            <button class="btn gray-btn" id="declineBtn">Decline</button>
+        </div>
+        </div>
+    </div>
+</div>
+    <div id="scroll_section">
+        <div class="section cl1">
+            <div class="Mug text-center">
+                <h1>Feel Free to Browse the Courses you want!</h1>
+            </div>
+        </div>
+        <div class="section cl2">
+            <div class="Mug text-center">
+            </div>
+        </div>
+        <div class="section cl3">
+            <div class="Mug text-center">
+                <h1>Welcome To Our Page!</h1>
+            </div>
+        </div>
+        <div class="section cl4">
+            <div class="Mug text-center">
+            </div>
+        </div>
+        </div>
+
+    <div class="banner">
+        <div class="navbar">
+            <img src="CourseLogos.png" class="logo">
+            <ul>
+                <li><a href="MainPage.html">Home</a></li>
+                <li><a href="Courses.html">Courses</a></li>
+                <li><a href="About Us.html">About Us</a></li>
+                <li><a href="contactus.html">Contacts</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Your FUTURE Matters!!</h1>
+            <p> Venture into different Adventures that fits your desire! <br> Click here If you want to know more or if you want to donate into our Project!</p>
+            <div>
+                <button type="button"><span></span>MORE INFO</button>
+                <button type="buttons"><span></span>DONATION</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="#"><img src="logo-youtube.svg" alt="YouTube"></a>
+        <a href="#"><img src="logo-facebook.svg" alt="Facebook"></a>
+        <a href="#"><img src="logo-twitter.svg" alt="Twitter"></a>
+        <a href="#"><img src="logo-instagram.svg" alt="Instagram"></a>
+        <a href="#"><img src="logo-snapchat.svg" alt="Snapchat"></a>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="effect.js"></script>
+    <script>
+        // Get the modal element
+        var modal = document.getElementById("myModal");
+
+        // Get the buttons that open the modal
+        var acceptBtn = document.getElementById("acceptBtn");
+        var declineBtn = document.getElementById("declineBtn");
+
+        // Function to open the modal
+        function openModal() {
+            modal.style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // When the page loads, open the modal
+        window.onload = openModal;
+
+        // Event listener for the accept button
+        acceptBtn.addEventListener("click", function() {
+            closeModal();
+        });
+
+        // Event listener for the decline button
+        declineBtn.addEventListener("click", function() {
+            closeModal();
+            window.close(); // Close the window when declined
+        });
+    </script>
+</body>
+</html>
